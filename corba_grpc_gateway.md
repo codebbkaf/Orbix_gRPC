@@ -113,6 +113,7 @@ func main() {
 ---
 
 ## **結論**
+- 因為 Golang 沒有 內建的 CORBA ORB，所以：
 - **不能讓 C++ Orbix 直接呼叫 Golang `net/rpc` 伺服端**，因為通訊協議與序列化方式不相容。
 - **最佳解法** 是 **讓 C++ CORBA 伺服端 充當 Gateway，轉發請求到 gRPC 伺服端**。
 - 這樣可以 **讓舊的 C++ Orbix 客戶端 保持不變，但仍然能夠與 Golang 伺服端通訊**。
